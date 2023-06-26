@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% from 'pagination.html' import render_pagination %}
 
 {% block content %}
 <h1 class="title my-3 font-weight-bold text-center">Электронная библиотека</h1>
@@ -89,9 +88,6 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <div class="mb-5">
-                {{ render_pagination(pagination, request.endpoint, search_params) }}
-            </div>
         </div>
     </div>
     {% endif %}

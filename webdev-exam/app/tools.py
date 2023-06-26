@@ -40,12 +40,14 @@ class ImageSaver:
             file_name=str(last_id + 1) + file_name,
             mime_type=self.file.mimetype,
             md5_hash=self.md5_hash)
-        print(os.path.join(app.config['UPLOAD_FOLDER'],self.img.storage_filename))
-        self.file.save(
-            os.path.join(app.config['UPLOAD_FOLDER'],
-                         self.img.storage_filename))
-        db.session.add(self.img)
-        db.session.commit()
+        try:
+            db.session.add(self.img)
+            db.session.commit()
+            self.file.save(
+                os.path.join(app.config['UPLOAD_FOLDER'],
+                            self.img.storage_filename))
+        except:
+            self.img.id = None
         return self.img.id
 
     def __find_by_md5_hash(self):

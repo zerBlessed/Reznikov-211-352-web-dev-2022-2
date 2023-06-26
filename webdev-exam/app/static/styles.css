@@ -1,6 +1,6 @@
 
 .background-preview {
-    border: 3px dashed grey;
+    border: 3px dashed rgb(188, 217, 230);
     flex-grow: 1;
 }
 

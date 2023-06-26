@@ -42,7 +42,7 @@ def new():
                 flash("Возникла ошибка", "danger")
                 return redirect(url_for('book.new'))
         else:
-            flash("Добавьте картинку", "danger")
+            flash("Возникла ошибка", "danger")
             return redirect(url_for('book.new'))
 
 @bp.route('/show/<int:book_id>')
@@ -158,7 +158,3 @@ def review(book_id):
     if request.method == 'GET':
         return render_template('book/review.html', book=book)
 
-    
-
-
-        
